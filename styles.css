@@ -420,6 +420,16 @@ html { scroll-behavior: smooth; }
   z-index: 1;
 }
 
+.shot {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 14px;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+}
+
 .placeholder {
   border: 1px dashed rgba(255,255,255,.22);
   border-radius: 14px;
