@@ -25,14 +25,15 @@ jobs:
         if: ${{ github.event.action != 'closed' }}
         run: |
           set -euo pipefail
-          pr="${{ github.event.pull_request.number }}"
-          out="_preview/pr-${pr}"
           rm -rf _preview
-          mkdir -p "$out"
-          # Copy site files (static repo)
-          cp -r index.html styles.css latest.json .github "$out" 2>/dev/null || true
-          # If more files are added later (images, etc.), this keeps it future-proof.
-          rsync -av --exclude '.git' --exclude '_preview' --exclude '.github/workflows' ./ "$out"/
+          mkdir -p _preview
+
+          # Copy the site into a staging folder. The deploy step will publish it under /pr-<n>/.
+          rsync -av \
+            --exclude '.git' \
+            --exclude '_preview' \
+            --exclude '.github' \
+            ./ _preview/
 
       - name: Deploy preview to gh-pages
         if: ${{ github.event.action != 'closed' }}
