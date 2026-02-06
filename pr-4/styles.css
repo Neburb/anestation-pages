@@ -84,7 +84,7 @@ body {
 }
 
 .navInner {
-  max-width: 1120px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 12px 20px;
   display: flex;
@@ -159,7 +159,7 @@ a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 .wrap {
-  max-width: 1120px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 56px 20px;
 }
@@ -197,10 +197,18 @@ html { scroll-behavior: smooth; }
 
 .heroGrid {
   display: grid;
-  grid-template-columns: 1fr 1.15fr;
-  gap: 24px;
+  grid-template-columns: 0.9fr 1.25fr;
+  gap: 26px;
   align-items: center;
   position: relative;
+}
+
+.heroPreview .crt {
+  min-height: 420px;
+}
+
+.heroPreview .shot {
+  height: 420px;
 }
 
 .heroPreview {
@@ -310,12 +318,12 @@ html { scroll-behavior: smooth; }
 }
 
 .featureMedia .crt {
-  min-height: 320px;
+  min-height: 420px;
 }
 
 .featureMedia .heroVideo,
 .featureMedia .shot {
-  height: 320px;
+  height: 420px;
 }
 
 .featureItem.reverse .featureText { order: 2; }
@@ -578,7 +586,10 @@ html { scroll-behavior: smooth; }
   .featureItem { grid-template-columns: 1fr; }
   .featureItem.reverse .featureText { order: 0; }
   .featureItem.reverse .featureMedia { order: 0; }
-  .featureMedia .crt { min-height: 220px; }
+  .heroPreview .crt { min-height: 260px; }
+  .heroPreview .shot { height: 260px; }
+
+  .featureMedia .crt { min-height: 280px; }
   .featureMedia .heroVideo,
-  .featureMedia .shot { height: 220px; }
+  .featureMedia .shot { height: 280px; }
 }
