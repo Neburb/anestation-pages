@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>AneStation</title>
+    <meta name="description" content="AneStation — a retro-console inspired desktop experience." />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="wrap">
+      <header class="hero">
+        <p class="kicker">AneStation</p>
+        <h1>Retro-console inspired desktop experience.</h1>
+        <p class="sub">
+          Insert media, boot games, and enjoy a console-like launcher UI.
+        </p>
+        <div class="cta">
+          <a class="btn" href="https://github.com/Neburb/AneStation" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn secondary" href="#status">Status</a>
+        </div>
+      </header>
+
+      <section class="grid">
+        <div class="card">
+          <h2>Fast</h2>
+          <p>Lightweight Electron + React renderer.</p>
+        </div>
+        <div class="card">
+          <h2>Retro UX</h2>
+          <p>CRT-style visuals, audio feedback, and console vibes.</p>
+        </div>
+        <div class="card">
+          <h2>Extensible</h2>
+          <p>App system + widgets (in progress).</p>
+        </div>
+      </section>
+
+      <section id="status" class="status">
+        <h2>Project status</h2>
+        <ul>
+          <li>Landing page: online</li>
+          <li>Core app: active development</li>
+        </ul>
+        <p class="note">Want to help? Open an issue or propose a PR.</p>
+      </section>
+
+      <footer class="footer">
+        <p>
+          © <span id="y"></span> AneStation · <a href="https://github.com/Neburb/AneStation" target="_blank" rel="noreferrer">Source</a>
+        </p>
+      </footer>
+    </main>
+
+    <script>
+      document.getElementById('y').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
