@@ -29,6 +29,16 @@ a:hover { text-decoration: underline; }
   padding: 64px 20px;
 }
 
+html { scroll-behavior: smooth; }
+
+.muted { color: var(--muted); }
+
+.meta {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
 .hero {
   padding: 36px 28px;
   border: 1px solid var(--border);
@@ -94,6 +104,16 @@ a:hover { text-decoration: underline; }
 
 .card h2 { margin: 0 0 8px; font-size: 18px; }
 .card p { margin: 0; color: var(--muted); }
+
+.download {
+  margin-top: 22px;
+  border: 1px solid rgba(56,189,248,.28);
+  border-radius: 16px;
+  background: rgba(2,6,23,.55);
+  padding: 18px;
+  box-shadow: 0 0 24px rgba(56,189,248,.12);
+}
+.download h2 { margin: 0 0 10px; font-size: 18px; }
 
 .status {
   margin-top: 22px;
