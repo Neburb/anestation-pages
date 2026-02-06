@@ -204,11 +204,11 @@ html { scroll-behavior: smooth; }
 }
 
 .heroPreview .crt {
-  min-height: 420px;
+  min-height: 480px;
 }
 
 .heroPreview .shot {
-  height: 420px;
+  height: 480px;
 }
 
 .heroPreview {
@@ -318,12 +318,12 @@ html { scroll-behavior: smooth; }
 }
 
 .featureMedia .crt {
-  min-height: 420px;
+  min-height: 480px;
 }
 
 .featureMedia .heroVideo,
 .featureMedia .shot {
-  height: 420px;
+  height: 480px;
 }
 
 .featureItem.reverse .featureText { order: 2; }
@@ -586,10 +586,10 @@ html { scroll-behavior: smooth; }
   .featureItem { grid-template-columns: 1fr; }
   .featureItem.reverse .featureText { order: 0; }
   .featureItem.reverse .featureMedia { order: 0; }
-  .heroPreview .crt { min-height: 260px; }
-  .heroPreview .shot { height: 260px; }
+  .heroPreview .crt { min-height: 300px; }
+  .heroPreview .shot { height: 300px; }
 
-  .featureMedia .crt { min-height: 280px; }
+  .featureMedia .crt { min-height: 340px; }
   .featureMedia .heroVideo,
-  .featureMedia .shot { height: 280px; }
+  .featureMedia .shot { height: 340px; }
 }
