@@ -84,7 +84,7 @@ body {
 }
 
 .navInner {
-  max-width: 980px;
+  max-width: 1120px;
   margin: 0 auto;
   padding: 12px 20px;
   display: flex;
@@ -159,9 +159,9 @@ a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 .wrap {
-  max-width: 980px;
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 64px 20px;
+  padding: 56px 20px;
 }
 
 html { scroll-behavior: smooth; }
@@ -197,8 +197,8 @@ html { scroll-behavior: smooth; }
 
 .heroGrid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 22px;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 24px;
   align-items: center;
   position: relative;
 }
@@ -299,7 +299,7 @@ html { scroll-behavior: smooth; }
 
 .featureItem {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
+  grid-template-columns: 0.95fr 1.05fr;
   gap: 18px;
   align-items: center;
   padding: 22px;
@@ -307,6 +307,15 @@ html { scroll-behavior: smooth; }
   border-radius: 18px;
   background: rgba(2,6,23,.38);
   box-shadow: 0 14px 40px var(--shadow);
+}
+
+.featureMedia .crt {
+  min-height: 320px;
+}
+
+.featureMedia .heroVideo,
+.featureMedia .shot {
+  height: 320px;
 }
 
 .featureItem.reverse .featureText { order: 2; }
@@ -338,8 +347,17 @@ html { scroll-behavior: smooth; }
 
 .covers {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 14px;
+}
+
+.coverImg {
+  aspect-ratio: 16 / 9;
+}
+
+.coverImg .shot,
+.coverImg .placeholder {
+  height: 100%;
 }
 
 .cover {
@@ -385,7 +403,7 @@ html { scroll-behavior: smooth; }
 
 .crt {
   border-radius: 18px;
-  padding: 12px;
+  padding: 10px;
   background:
     radial-gradient(circle at 10% 10%, rgba(56,189,248,.18), transparent 55%),
     radial-gradient(circle at 90% 90%, rgba(167,139,250,.16), transparent 55%),
@@ -422,7 +440,7 @@ html { scroll-behavior: smooth; }
 
 .shot {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
   border-radius: 14px;
   object-fit: cover;
@@ -560,4 +578,7 @@ html { scroll-behavior: smooth; }
   .featureItem { grid-template-columns: 1fr; }
   .featureItem.reverse .featureText { order: 0; }
   .featureItem.reverse .featureMedia { order: 0; }
+  .featureMedia .crt { min-height: 220px; }
+  .featureMedia .heroVideo,
+  .featureMedia .shot { height: 220px; }
 }
