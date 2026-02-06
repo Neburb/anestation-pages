@@ -26,54 +26,82 @@
 
     <main class="wrap" id="top">
       <section class="hero">
-        <p class="kicker">AneStation</p>
-        <h1>Retro-console inspired desktop experience.</h1>
-        <p class="sub">
-          Insert media, boot games, and enjoy a console-like launcher UI.
-        </p>
+        <div class="heroGrid">
+          <div class="heroText">
+            <p class="kicker">AneStation</p>
+            <h1>Retro-console inspired desktop experience.</h1>
+            <p class="sub">
+              Insert media, boot games, and enjoy a console-like launcher UI.
+            </p>
 
-        <div class="cta">
-          <a class="btn" id="downloadBtn" href="#download">Download</a>
-          <a class="btn secondary" href="https://github.com/Neburb/AneStation" target="_blank" rel="noreferrer">GitHub</a>
-        </div>
+            <div class="cta">
+              <a class="btn" id="downloadBtn" href="#download">Download</a>
+              <a class="btn secondary" href="https://github.com/Neburb/AneStation" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
 
-        <p class="meta" id="releaseMeta" aria-live="polite"></p>
+            <p class="meta" id="releaseMeta" aria-live="polite"></p>
+          </div>
 
-        <div class="heroPreview" aria-label="Preview">
-          <div class="placeholder">
-            <strong>Screenshot / video placeholder</strong>
-            <p>Put a short gameplay/menu capture here (Main → Menu → Apps/Options) or a polished hero screenshot.</p>
+          <div class="heroPreview" aria-label="Preview">
+            <div class="crt">
+              <div class="placeholder">
+                <strong>Screenshot / video placeholder</strong>
+                <p>Put a short capture here: Main → Menu → Apps/Options.</p>
+              </div>
+            </div>
+            <p class="hint">Tip: a 6–10s looped mp4/webm looks great here.</p>
           </div>
         </div>
       </section>
 
-      <section id="how" class="section">
-        <h2>How it works</h2>
-        <div class="grid">
-          <div class="card">
-            <h3>1) Insert media</h3>
-            <p>USB/SD with a <code>media.yml</code> at the root.</p>
-          </div>
-          <div class="card">
-            <h3>2) Detect & show</h3>
-            <p>AneStation picks up the game, artwork and metadata (optional).</p>
-          </div>
-          <div class="card">
-            <h3>3) Launch</h3>
-            <p>Console-like flow with gamepad-friendly navigation.</p>
+      <section id="how" class="section split">
+        <div class="splitText">
+          <h2>How it works</h2>
+          <p class="lead">AneStation is designed to behave like a console BIOS: insert media, it’s detected, you’re ready to launch.</p>
+          <ol class="steps">
+            <li><strong>Insert media</strong> — USB/SD with a <code>media.yml</code> at the root.</li>
+            <li><strong>Detect & show</strong> — game name, artwork, and optional metadata.</li>
+            <li><strong>Launch</strong> — gamepad-friendly navigation and instant boot flow.</li>
+          </ol>
+        </div>
+        <div class="splitMedia">
+          <div class="crt">
+            <div class="placeholder">
+              <strong>How-it-works screenshot</strong>
+              <p>Placeholder: a wide screenshot showing the “media detected” state.</p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="features" class="section">
-        <h2>Features</h2>
-        <div class="grid two">
-          <div class="card"><h3>Plug & Play</h3><p>Detect mounted drives and boot fast.</p></div>
-          <div class="card"><h3>Retro UX</h3><p>CRT vibe, scanlines, audio feedback.</p></div>
-          <div class="card"><h3>Apps & Widgets</h3><p>Extensible UI with bundled tools.</p></div>
-          <div class="card"><h3>Saves</h3><p>Save data management (evolving).</p></div>
-          <div class="card"><h3>OTA updates</h3><p>Update flow designed for appliances.</p></div>
-          <div class="card"><h3>Themes</h3><p>Multiple looks and styles.</p></div>
+      <section id="features" class="section split reverse">
+        <div class="splitText">
+          <h2>Features</h2>
+          <p class="lead">A tight core + an extensible UI for apps, options, and a living console-like experience.</p>
+          <div class="chips">
+            <span class="chip">Plug & Play</span>
+            <span class="chip">Retro UX</span>
+            <span class="chip">Apps & Widgets</span>
+            <span class="chip">Saves</span>
+            <span class="chip">OTA</span>
+            <span class="chip">Themes</span>
+          </div>
+          <div class="grid two">
+            <div class="card"><h3>Plug & Play</h3><p>Detect mounted drives and boot fast.</p></div>
+            <div class="card"><h3>Retro UX</h3><p>CRT vibe, scanlines, audio feedback.</p></div>
+            <div class="card"><h3>Apps & Widgets</h3><p>Extensible UI with bundled tools.</p></div>
+            <div class="card"><h3>Saves</h3><p>Save data management (evolving).</p></div>
+            <div class="card"><h3>OTA updates</h3><p>Update flow designed for appliances.</p></div>
+            <div class="card"><h3>Themes</h3><p>Multiple looks and styles.</p></div>
+          </div>
+        </div>
+        <div class="splitMedia">
+          <div class="crt">
+            <div class="placeholder">
+              <strong>Features screenshot</strong>
+              <p>Placeholder: Apps gallery / Options screen with a strong visual.</p>
+            </div>
+          </div>
         </div>
       </section>
 
