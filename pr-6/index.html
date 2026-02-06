@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>AneStation</title>
+    <meta name="description" content="AneStation — a retro-console inspired desktop experience." />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="wrap">
+      <header class="hero">
+        <p class="kicker">AneStation</p>
+        <h1>Retro-console inspired desktop experience.</h1>
+        <p class="sub">
+          Insert media, boot games, and enjoy a console-like launcher UI.
+        </p>
+        <div class="cta">
+          <a class="btn" id="downloadBtn" href="#download">Download</a>
+          <a class="btn secondary" href="https://github.com/Neburb/AneStation" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn secondary" href="#status">Status</a>
+        </div>
+        <p class="meta" id="releaseMeta" aria-live="polite"></p>
+      </header>
+
+      <section id="download" class="download">
+        <h2>Download</h2>
+        <p class="muted">Latest release: <span id="releaseTag">—</span></p>
+        <div class="cta">
+          <a class="btn" id="downloadPrimary" href="https://github.com/Neburb/AneStation" target="_blank" rel="noreferrer">Open releases</a>
+          <a class="btn secondary" id="downloadSecondary" href="https://github.com/Neburb/AneStation" target="_blank" rel="noreferrer">View on GitHub</a>
+        </div>
+        <p class="note" id="downloadNote">Loading latest release…</p>
+      </section>
+
+      <section class="grid">
+        <div class="card">
+          <h2>Fast</h2>
+          <p>Lightweight Electron + React renderer.</p>
+        </div>
+        <div class="card">
+          <h2>Retro UX</h2>
+          <p>CRT-style visuals, audio feedback, and console vibes.</p>
+        </div>
+        <div class="card">
+          <h2>Extensible</h2>
+          <p>App system + widgets (in progress).</p>
+        </div>
+      </section>
+
+      <section id="status" class="status">
+        <h2>Project status</h2>
+        <ul>
+          <li>Landing page: online</li>
+          <li>Core app: active development</li>
+        </ul>
+        <p class="note">Want to help? Open an issue or propose a PR.</p>
+      </section>
+
+      <footer class="footer">
+        <p>
+          © <span id="y"></span> AneStation · <a href="https://github.com/Neburb/AneStation" target="_blank" rel="noreferrer">Source</a>
+        </p>
+      </footer>
+    </main>
+
+    <script>
+      document.getElementById('y').textContent = new Date().getFullYear();
+
+      const pickPrimaryAsset = (assets) => {
+        if (!Array.isArray(assets)) return null;
+        // Prefer Windows portable exe; fallback to first asset.
+        const exe = assets.find(a => typeof a?.name === 'string' && a.name.toLowerCase().endsWith('.exe'));
+        return exe ?? assets[0] ?? null;
+      };
+
+      fetch('./latest.json', { cache: 'no-store' })
+        .then(r => r.json())
+        .then((data) => {
+          const tag = data?.tag ?? null;
+          const assets = data?.assets ?? [];
+          const primary = pickPrimaryAsset(assets);
+
+          const releaseTag = document.getElementById('releaseTag');
+          const releaseMeta = document.getElementById('releaseMeta');
+          const note = document.getElementById('downloadNote');
+          const primaryBtn = document.getElementById('downloadPrimary');
+          const secondaryBtn = document.getElementById('downloadSecondary');
+
+          if (tag) {
+            releaseTag.textContent = tag;
+            releaseMeta.textContent = `Latest release: ${tag}`;
+          } else {
+            releaseMeta.textContent = '';
+          }
+
+          const htmlUrl = data?.htmlUrl || 'https://github.com/Neburb/AneStation';
+          secondaryBtn.href = htmlUrl;
+
+          if (primary?.url) {
+            primaryBtn.href = primary.url;
+            primaryBtn.textContent = `Download ${primary.name || tag || ''}`.trim();
+            note.textContent = primary.size ? `File size: ${primary.size}` : 'Ready.';
+          } else {
+            primaryBtn.href = htmlUrl;
+            primaryBtn.textContent = tag ? `Open ${tag} release` : 'Open releases';
+            note.textContent = 'No downloadable assets found (or not published yet).';
+          }
+        })
+        .catch(() => {
+          const note = document.getElementById('downloadNote');
+          note.textContent = 'Could not load latest release info.';
+        });
+    </script>
+  </body>
+</html>
