@@ -202,6 +202,40 @@ html { scroll-behavior: smooth; }
   line-height: 1.6;
 }
 
+.manifesto {
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: rgba(2,6,23,.38);
+  box-shadow: 0 14px 40px var(--shadow);
+}
+
+.noList {
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 0;
+  display: grid;
+  gap: 10px;
+}
+
+.noList li {
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.10);
+  background:
+    linear-gradient(180deg, rgba(56,189,248,.06), transparent 60%),
+    rgba(2,6,23,.28);
+  color: rgba(229,231,235,.88);
+}
+
+.conclusion {
+  margin: 16px 0 0;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: rgba(229,231,235,.92);
+}
+
 .split {
   display: grid;
   grid-template-columns: 1fr 1fr;
