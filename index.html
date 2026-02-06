@@ -8,53 +8,128 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main class="wrap">
-      <header class="hero">
+    <a class="skip" href="#top">Skip to content</a>
+
+    <header class="nav" role="banner">
+      <div class="navInner">
+        <a class="brand" href="#top">AneStation</a>
+        <nav aria-label="Primary">
+          <a href="#how">How it works</a>
+          <a href="#features">Features</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#download">Download</a>
+          <a href="#status">Status</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap" id="top">
+      <section class="hero">
         <p class="kicker">AneStation</p>
         <h1>Retro-console inspired desktop experience.</h1>
         <p class="sub">
           Insert media, boot games, and enjoy a console-like launcher UI.
         </p>
+
         <div class="cta">
           <a class="btn" id="downloadBtn" href="#download">Download</a>
           <a class="btn secondary" href="https://github.com/Neburb/AneStation" target="_blank" rel="noreferrer">GitHub</a>
-          <a class="btn secondary" href="#status">Status</a>
         </div>
+
         <p class="meta" id="releaseMeta" aria-live="polite"></p>
-      </header>
+
+        <div class="heroPreview" aria-label="Preview">
+          <div class="placeholder">
+            <strong>Screenshot / video placeholder</strong>
+            <p>Put a short gameplay/menu capture here (Main → Menu → Apps/Options) or a polished hero screenshot.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="how" class="section">
+        <h2>How it works</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>1) Insert media</h3>
+            <p>USB/SD with a <code>media.yml</code> at the root.</p>
+          </div>
+          <div class="card">
+            <h3>2) Detect & show</h3>
+            <p>AneStation picks up the game, artwork and metadata (optional).</p>
+          </div>
+          <div class="card">
+            <h3>3) Launch</h3>
+            <p>Console-like flow with gamepad-friendly navigation.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="section">
+        <h2>Features</h2>
+        <div class="grid two">
+          <div class="card"><h3>Plug & Play</h3><p>Detect mounted drives and boot fast.</p></div>
+          <div class="card"><h3>Retro UX</h3><p>CRT vibe, scanlines, audio feedback.</p></div>
+          <div class="card"><h3>Apps & Widgets</h3><p>Extensible UI with bundled tools.</p></div>
+          <div class="card"><h3>Saves</h3><p>Save data management (evolving).</p></div>
+          <div class="card"><h3>OTA updates</h3><p>Update flow designed for appliances.</p></div>
+          <div class="card"><h3>Themes</h3><p>Multiple looks and styles.</p></div>
+        </div>
+      </section>
+
+      <section id="gallery" class="section">
+        <h2>Gallery</h2>
+        <div class="gallery">
+          <div class="placeholder">
+            <strong>Main screen</strong>
+            <p>Placeholder: screenshot of Main view with media inserted.</p>
+          </div>
+          <div class="placeholder">
+            <strong>Menu</strong>
+            <p>Placeholder: screenshot showing Menu options.</p>
+          </div>
+          <div class="placeholder">
+            <strong>Apps / Options</strong>
+            <p>Placeholder: screenshot showing Apps gallery / Options config.</p>
+          </div>
+        </div>
+      </section>
 
       <section id="download" class="download">
         <h2>Download</h2>
         <p class="muted">Latest release: <span id="releaseTag">—</span></p>
         <div class="cta">
-          <a class="btn" id="downloadPrimary" href="https://github.com/Neburb/AneStation" target="_blank" rel="noreferrer">Open releases</a>
-          <a class="btn secondary" id="downloadSecondary" href="https://github.com/Neburb/AneStation" target="_blank" rel="noreferrer">View on GitHub</a>
+          <a class="btn" id="downloadPrimary" href="https://github.com/Neburb/anestation-pages/releases" target="_blank" rel="noreferrer">Open releases</a>
+          <a class="btn secondary" id="downloadSecondary" href="https://github.com/Neburb/anestation-pages" target="_blank" rel="noreferrer">View repo</a>
         </div>
         <p class="note" id="downloadNote">Loading latest release…</p>
       </section>
 
-      <section class="grid">
-        <div class="card">
-          <h2>Fast</h2>
-          <p>Lightweight Electron + React renderer.</p>
-        </div>
-        <div class="card">
-          <h2>Retro UX</h2>
-          <p>CRT-style visuals, audio feedback, and console vibes.</p>
-        </div>
-        <div class="card">
-          <h2>Extensible</h2>
-          <p>App system + widgets (in progress).</p>
-        </div>
-      </section>
-
-      <section id="status" class="status">
+      <section id="status" class="status section">
         <h2>Project status</h2>
         <ul>
           <li>Landing page: online</li>
           <li>Core app: active development</li>
         </ul>
         <p class="note">Want to help? Open an issue or propose a PR.</p>
+      </section>
+
+      <section id="faq" class="section">
+        <h2>FAQ</h2>
+        <div class="faq">
+          <details>
+            <summary>Is AneStation an emulator?</summary>
+            <p>No. It’s a launcher shell. Emulation is handled by whatever you configure to run.</p>
+          </details>
+          <details>
+            <summary>Which platforms are supported?</summary>
+            <p>Placeholder: list target OS (Windows first) and future plans.</p>
+          </details>
+          <details>
+            <summary>How do updates work?</summary>
+            <p>Placeholder: describe OTA behavior and update prompts.</p>
+          </details>
+        </div>
       </section>
 
       <footer class="footer">
