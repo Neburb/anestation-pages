@@ -1,0 +1,74 @@
+name: Update latest release metadata
+
+on:
+  workflow_dispatch:
+  schedule:
+    # every 30 minutes
+    - cron: "*/30 * * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fetch latest release from public repo
+        env:
+          OWNER: Neburb
+          REPO: anestation-pages
+        run: |
+          set -euo pipefail
+
+          api="https://api.github.com/repos/${OWNER}/${REPO}/releases/latest"
+          json=$(curl -fsSL -H "Accept: application/vnd.github+json" "$api")
+
+          RELEASE_JSON="$json" node - <<'NODE'
+          const fs = require('fs');
+          const release = JSON.parse(process.env.RELEASE_JSON);
+
+          const formatBytes = (bytes) => {
+            if (typeof bytes !== 'number') return null;
+            const units = ['B','KB','MB','GB'];
+            let n = bytes;
+            let i = 0;
+            while (n >= 1024 && i < units.length - 1) { n /= 1024; i++; }
+            return `${n.toFixed(i === 0 ? 0 : 1)} ${units[i]}`;
+          };
+
+          const out = {
+            tag: release.tag_name ?? null,
+            name: release.name ?? null,
+            publishedAt: release.published_at ?? null,
+            htmlUrl: release.html_url ?? null,
+            assets: Array.isArray(release.assets) ? release.assets.map(a => ({
+              name: a.name ?? null,
+              url: a.browser_download_url ?? null,
+              size: formatBytes(a.size),
+              contentType: a.content_type ?? null,
+            })) : [],
+          };
+
+          fs.writeFileSync('latest.json', JSON.stringify(out, null, 2) + '\n');
+          console.log('Wrote latest.json', out.tag);
+          NODE
+
+      - name: Commit & push (if changed)
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- latest.json; then
+            echo "No changes."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add latest.json
+          git commit -m "chore: update latest release metadata"
+          git push

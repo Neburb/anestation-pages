@@ -1,0 +1,30 @@
+name: Deploy Pages (gh-pages)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# We publish the production site to the gh-pages branch.
+# PR previews are published under /pr-<number>/ by a separate workflow.
+permissions:
+  contents: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy production to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: .
+          keep_files: true
+          exclude_assets: ''
