@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>AneStation</title>
     <meta name="description" content="AneStation — a retro-console inspired desktop experience." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -14,12 +19,12 @@
       <div class="navInner">
         <a class="brand" href="#top">AneStation</a>
         <nav aria-label="Primary">
-          <a href="#how">How it works</a>
-          <a href="#features">Features</a>
-          <a href="#gallery">Gallery</a>
-          <a href="#download">Download</a>
-          <a href="#status">Status</a>
-          <a href="#faq">FAQ</a>
+          <a href="#how" data-nav="how">How it works</a>
+          <a href="#features" data-nav="features">Features</a>
+          <a href="#gallery" data-nav="gallery">Gallery</a>
+          <a href="#download" data-nav="download">Download</a>
+          <a href="#status" data-nav="status">Status</a>
+          <a href="#faq" data-nav="faq">FAQ</a>
         </nav>
       </div>
     </header>
@@ -107,19 +112,47 @@
 
       <section id="gallery" class="section">
         <h2>Gallery</h2>
-        <div class="gallery">
-          <div class="placeholder">
-            <strong>Main screen</strong>
-            <p>Placeholder: screenshot of Main view with media inserted.</p>
-          </div>
-          <div class="placeholder">
-            <strong>Menu</strong>
-            <p>Placeholder: screenshot showing Menu options.</p>
-          </div>
-          <div class="placeholder">
-            <strong>Apps / Options</strong>
-            <p>Placeholder: screenshot showing Apps gallery / Options config.</p>
-          </div>
+        <p class="lead">A few key screens. Replace these placeholders with real captures as the UI locks in.</p>
+
+        <div class="covers">
+          <article class="cover">
+            <div class="coverImg">
+              <div class="placeholder">
+                <strong>Main screen</strong>
+                <p>Placeholder: Main view with media inserted.</p>
+              </div>
+            </div>
+            <div class="coverMeta">
+              <h3>Main</h3>
+              <p>Default home screen (idle vs media detected states).</p>
+            </div>
+          </article>
+
+          <article class="cover">
+            <div class="coverImg">
+              <div class="placeholder">
+                <strong>Menu</strong>
+                <p>Placeholder: Menu navigation.</p>
+              </div>
+            </div>
+            <div class="coverMeta">
+              <h3>Menu</h3>
+              <p>Console-style options and quick actions.</p>
+            </div>
+          </article>
+
+          <article class="cover">
+            <div class="coverImg">
+              <div class="placeholder">
+                <strong>Apps / Options</strong>
+                <p>Placeholder: Apps gallery / Options screen.</p>
+              </div>
+            </div>
+            <div class="coverMeta">
+              <h3>Apps & Options</h3>
+              <p>Gallery tiles, settings, and tools.</p>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -166,6 +199,33 @@
         </p>
       </footer>
     </main>
+
+    <script>
+      // Active section highlight for the sticky nav
+      (function () {
+        const links = Array.from(document.querySelectorAll('header.nav nav a'));
+        const sections = links
+          .map((a) => document.querySelector(a.getAttribute('href')))
+          .filter(Boolean);
+
+        const setActive = (id) => {
+          links.forEach((a) => a.classList.toggle('active', a.getAttribute('href') === `#${id}`));
+        };
+
+        const io = new IntersectionObserver(
+          (entries) => {
+            const visible = entries
+              .filter((e) => e.isIntersecting)
+              .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+            if (visible?.target?.id) setActive(visible.target.id);
+          },
+          { root: null, threshold: [0.15, 0.25, 0.5], rootMargin: '-25% 0px -60% 0px' }
+        );
+
+        sections.forEach((s) => io.observe(s));
+        setActive('how');
+      })();
+    </script>
 
     <script>
       document.getElementById('y').textContent = new Date().getFullYear();
