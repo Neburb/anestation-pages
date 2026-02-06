@@ -18,22 +18,15 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Fetch latest release from private repo
+      - name: Fetch latest release from public repo
         env:
-          GH_TOKEN: ${{ secrets.ANESTATION_REPO_TOKEN }}
           OWNER: Neburb
-          REPO: AneStation
+          REPO: anestation-pages
         run: |
           set -euo pipefail
 
-          # Fail clearly if secret is missing.
-          if [ -z "${GH_TOKEN:-}" ]; then
-            echo "ANESTATION_REPO_TOKEN secret is missing" >&2
-            exit 1
-          fi
-
           api="https://api.github.com/repos/${OWNER}/${REPO}/releases/latest"
-          json=$(curl -fsSL -H "Authorization: Bearer ${GH_TOKEN}" -H "Accept: application/vnd.github+json" "$api")
+          json=$(curl -fsSL -H "Accept: application/vnd.github+json" "$api")
 
           RELEASE_JSON="$json" node - <<'NODE'
           const fs = require('fs');
