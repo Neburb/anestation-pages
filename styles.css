@@ -224,23 +224,45 @@ html { scroll-behavior: smooth; }
 .steps li { margin: 10px 0; color: rgba(229,231,235,.86); }
 .steps code { color: rgba(229,231,235,.92); }
 
-.chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 12px 0 16px;
+.featureStack {
+  display: grid;
+  gap: 14px;
 }
 
-.chip {
-  display: inline-flex;
+.featureItem {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 18px;
   align-items: center;
-  padding: 6px 10px;
-  font-size: 12px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.14);
-  background: rgba(2,6,23,.35);
-  color: rgba(229,231,235,.86);
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: rgba(2,6,23,.38);
+  box-shadow: 0 14px 40px var(--shadow);
 }
+
+.featureItem.reverse .featureText { order: 2; }
+.featureItem.reverse .featureMedia { order: 1; }
+
+.featureText h3 {
+  margin: 0 0 10px;
+  font-size: 22px;
+  letter-spacing: 0.01em;
+}
+
+.featureText p {
+  margin: 0 0 12px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.featureText ul {
+  margin: 0;
+  padding-left: 18px;
+  color: rgba(229,231,235,.88);
+}
+
+.featureText li { margin: 8px 0; }
 
 .grid.two {
   grid-template-columns: repeat(2, 1fr);
@@ -446,4 +468,7 @@ html { scroll-behavior: smooth; }
   .split { grid-template-columns: 1fr; }
   .split.reverse .splitText { order: 0; }
   .split.reverse .splitMedia { order: 0; }
+  .featureItem { grid-template-columns: 1fr; }
+  .featureItem.reverse .featureText { order: 0; }
+  .featureItem.reverse .featureMedia { order: 0; }
 }
