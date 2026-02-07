@@ -5,56 +5,249 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>AneStation</title>
     <meta name="description" content="AneStation — a retro-console inspired desktop experience." />
+
+    <link rel="icon" href="assets/icon.ico" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="assets/icon.svg" />
+    <link rel="apple-touch-icon" href="assets/icon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main class="wrap">
-      <header class="hero">
-        <p class="kicker">AneStation</p>
-        <h1>Retro-console inspired desktop experience.</h1>
-        <p class="sub">
-          Insert media, boot games, and enjoy a console-like launcher UI.
-        </p>
-        <div class="cta">
-          <a class="btn" id="downloadBtn" href="#download">Download</a>
-          <a class="btn secondary" href="https://github.com/Neburb/AneStation" target="_blank" rel="noreferrer">GitHub</a>
-          <a class="btn secondary" href="#status">Status</a>
+    <a class="skip" href="#top">Skip to content</a>
+
+    <header class="nav" role="banner">
+      <div class="navInner">
+        <a class="brand" href="#top">
+          <span class="brandText">AneStation</span>
+        </a>
+        <nav aria-label="Primary">
+          <a href="#how" data-nav="how">How it works</a>
+          <a href="#features" data-nav="features">Features</a>
+          <a href="#gallery" data-nav="gallery">Gallery</a>
+          <a href="#download" data-nav="download">Download</a>
+          <a href="#faq" data-nav="faq">FAQ</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap" id="top">
+      <div class="topLogo" aria-hidden="true">
+        <img src="assets/logo.svg" alt="" />
+      </div>
+
+      <section class="hero">
+        <div class="heroGrid">
+          <div class="heroText">
+            <p class="kicker">AneStation</p>
+            <h1>Boot &amp; Play.</h1>
+            <p class="sub">
+              A console-like experience for your PC library. Insert media, power on, play.
+            </p>
+
+            <div class="cta">
+              <a class="btn" id="downloadBtn" href="#download">Download</a>
+              <a class="btn secondary" href="https://github.com/Neburb/AneStation" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+
+            <p class="meta" id="releaseMeta" aria-live="polite"></p>
+          </div>
+
+          <div class="heroPreview" aria-label="Preview">
+            <div class="crt">
+              <img class="shot" src="assets/cropped/boot-and-play-1280x720.jpg" alt="AneStation boot & play" loading="lazy" />
+            </div>
+            <p class="hint">Boot &amp; Play — instant start.</p>
+          </div>
         </div>
-        <p class="meta" id="releaseMeta" aria-live="polite"></p>
-      </header>
+      </section>
+
+      <section id="how" class="section split">
+        <div class="splitText">
+          <h2>How it works</h2>
+          <p class="lead">AneStation is designed to behave like a console BIOS: insert media, it’s detected, you’re ready to launch.</p>
+          <ol class="steps">
+            <li><strong>Insert media</strong> — USB/SD with a <code>media.yml</code> at the root.</li>
+            <li><strong>Detect &amp; show</strong> — game name, artwork, and optional metadata.</li>
+            <li><strong>Launch</strong> — gamepad-friendly navigation and instant boot flow.</li>
+          </ol>
+        </div>
+        <div class="splitMedia">
+          <div class="crt">
+            <video class="heroVideo" autoplay loop muted playsinline preload="metadata">
+              <source src="assets/boot-and-play.webm" type="video/webm" />
+            </video>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="section">
+        <h2>Features</h2>
+        <p class="lead">Inspired by the simplicity of ‘90s consoles: insert media, power on, play.</p>
+
+        <div class="featureStack">
+          <article class="featureItem">
+            <div class="featureText">
+              <h3>Pure play</h3>
+              <p>Boot straight into the experience—no extra steps between you and the game.</p>
+              <ul>
+                <li>Zero setup (once your media is prepared)</li>
+                <li>Direct to gameplay</li>
+                <li>Gamepad-first navigation</li>
+                <li>Distraction-free UI</li>
+              </ul>
+            </div>
+            <div class="featureMedia">
+              <div class="crt">
+                <img class="shot" src="assets/cropped/pure-play-1280x720.jpg" alt="AneStation main menu" loading="lazy" />
+              </div>
+            </div>
+          </article>
+
+          <article class="featureItem reverse">
+            <div class="featureText">
+              <h3>Create · Collect · Play</h3>
+              <p>Turn digital games into a tangible “cartridge” workflow using SD/USB media.</p>
+              <ul>
+                <li>Use SD cards or USB drives as “carts”</li>
+                <li>Portable library you can keep forever</li>
+                <li>Offline-friendly by design</li>
+              </ul>
+            </div>
+            <div class="featureMedia">
+              <div class="crt">
+                <img class="shot" src="assets/cartridge-workflow.jpg" alt="Game artwork and detected title" loading="lazy" />
+              </div>
+            </div>
+          </article>
+
+          <article class="featureItem">
+            <div class="featureText">
+              <h3>Save management</h3>
+              <p>Your save data is managed like a console memory card: predictable and portable.</p>
+              <ul>
+                <li>Automatic save capture</li>
+                <li>View / delete saves</li>
+                <li>Backups to external media (planned)</li>
+              </ul>
+            </div>
+            <div class="featureMedia">
+              <div class="crt">
+                <img class="shot" src="assets/cropped/saves-1280x720.jpg" alt="Memory card save management screen" loading="lazy" />
+              </div>
+            </div>
+          </article>
+
+          <article class="featureItem reverse">
+            <div class="featureText">
+              <h3>OTA updates</h3>
+              <p>Update flow designed for living-room machines (with visibility + progress).</p>
+              <ul>
+                <li>Release channels</li>
+                <li>Progress UI</li>
+                <li>Rollback strategy (placeholder)</li>
+              </ul>
+            </div>
+            <div class="featureMedia">
+              <div class="crt">
+                <div class="placeholder">
+                  <strong>OTA screenshot</strong>
+                  <p>Placeholder: OTA progress overlay.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="gallery" class="section">
+        <h2>Gallery</h2>
+        <p class="lead">A few key screens. Replace these placeholders with real captures as the UI locks in.</p>
+
+        <div class="covers">
+          <article class="cover">
+            <div class="coverImg">
+              <div class="placeholder">
+                <strong>Main screen</strong>
+                <p>Placeholder: Main view with media inserted.</p>
+              </div>
+            </div>
+            <div class="coverMeta">
+              <h3>Main</h3>
+              <p>Default home screen (idle vs media detected states).</p>
+            </div>
+          </article>
+
+          <article class="cover">
+            <div class="coverImg">
+              <img class="shot" src="assets/cropped/menu-1280x720.jpg" alt="AneStation menu" loading="lazy" />
+            </div>
+            <div class="coverMeta">
+              <h3>Menu</h3>
+              <p>Console-style options and quick actions.</p>
+            </div>
+          </article>
+
+          <article class="cover">
+            <div class="coverImg">
+              <img class="shot" src="assets/apps.jpg" alt="AneStation apps list" loading="lazy" />
+            </div>
+            <div class="coverMeta">
+              <h3>Apps &amp; Options</h3>
+              <p>Gallery tiles, settings, and tools.</p>
+            </div>
+          </article>
+        </div>
+      </section>
 
       <section id="download" class="download">
         <h2>Download</h2>
         <p class="muted">Latest release: <span id="releaseTag">—</span></p>
         <div class="cta">
-          <a class="btn" id="downloadPrimary" href="https://github.com/Neburb/AneStation" target="_blank" rel="noreferrer">Open releases</a>
-          <a class="btn secondary" id="downloadSecondary" href="https://github.com/Neburb/AneStation" target="_blank" rel="noreferrer">View on GitHub</a>
+          <a class="btn" id="downloadPrimary" href="https://github.com/Neburb/anestation-pages/releases" target="_blank" rel="noreferrer">Open releases</a>
+          <a class="btn secondary" id="downloadSecondary" href="https://github.com/Neburb/anestation-pages" target="_blank" rel="noreferrer">View repo</a>
         </div>
         <p class="note" id="downloadNote">Loading latest release…</p>
       </section>
 
-      <section class="grid">
-        <div class="card">
-          <h2>Fast</h2>
-          <p>Lightweight Electron + React renderer.</p>
-        </div>
-        <div class="card">
-          <h2>Retro UX</h2>
-          <p>CRT-style visuals, audio feedback, and console vibes.</p>
-        </div>
-        <div class="card">
-          <h2>Extensible</h2>
-          <p>App system + widgets (in progress).</p>
-        </div>
+      <section id="less-friction" class="section manifesto">
+        <h2>Less friction</h2>
+        <p class="lead">No noise. No distractions. Just the essentials.</p>
+        <ul class="noList">
+          <li><strong>No accounts</strong> — AneStation doesn’t require logins.</li>
+          <li><strong>No stores</strong> — no storefronts, no ads.</li>
+          <li><strong>No extra software</strong> — no companion apps to “manage” your library.</li>
+          <li><strong>DRM‑free friendly</strong> — bring your own games and keep them playable.</li>
+        </ul>
+        <p class="conclusion">Just plug, and play — like in the old days.</p>
       </section>
 
-      <section id="status" class="status">
-        <h2>Project status</h2>
-        <ul>
-          <li>Landing page: online</li>
-          <li>Core app: active development</li>
-        </ul>
-        <p class="note">Want to help? Open an issue or propose a PR.</p>
+      <section id="faq" class="section">
+        <h2>FAQ</h2>
+        <div class="faq">
+          <details>
+            <summary>What is AneStation?</summary>
+            <p>AneStation is a retro-console inspired desktop experience: insert media, power on, and launch into a clean, console-like UI for your games and apps.</p>
+          </details>
+
+          <details>
+            <summary>What media is supported?</summary>
+            <p>Any external media that your OS mounts as a drive (for example USB drives or SD cards). AneStation looks for a <code>media.yml</code> file at the root to identify and boot a “cartridge”.</p>
+          </details>
+
+          <details>
+            <summary>Does it support emulation?</summary>
+            <p>AneStation itself is not an emulator. It can launch whatever you configure as the game/app entrypoint—including emulators—so you can build a console-like experience around them.</p>
+          </details>
+
+          <details>
+            <summary>Can I create my own media?</summary>
+            <p>Yes. Create a folder/drive with your game files and add a <code>media.yml</code> describing what to launch (plus optional artwork/metadata). Then plug it in and AneStation will detect it like a cartridge.</p>
+          </details>
+        </div>
       </section>
 
       <footer class="footer">
@@ -65,6 +258,98 @@
     </main>
 
     <script>
+      // Active section highlight for the fixed nav
+      // (scroll position based — avoids double-highlighting issues with IntersectionObserver)
+      (function () {
+        const nav = document.querySelector('header.nav');
+        const links = Array.from(document.querySelectorAll('header.nav nav a'));
+        const items = links
+          .map((a) => {
+            const href = a.getAttribute('href') || '';
+            if (!href.startsWith('#')) return null;
+            const el = document.querySelector(href);
+            if (!el) return null;
+            return { a, el, id: href.slice(1) };
+          })
+          .filter(Boolean);
+
+        const setActive = (id) => {
+          links.forEach((a) => a.classList.toggle('active', a.getAttribute('href') === `#${id}`));
+        };
+
+        const pickActive = () => {
+          const offset = (nav?.getBoundingClientRect().height || 0) + 12;
+          let active = items[0]?.id;
+
+          for (const it of items) {
+            const top = it.el.getBoundingClientRect().top;
+            if (top - offset <= 0) active = it.id;
+            else break;
+          }
+
+          if (active) setActive(active);
+        };
+
+        let raf = 0;
+        const onScroll = () => {
+          cancelAnimationFrame(raf);
+          raf = requestAnimationFrame(pickActive);
+        };
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll);
+        window.addEventListener('hashchange', onScroll);
+
+        pickActive();
+      })();
+    </script>
+
+    <script>
+      // Simple image lightbox (same page)
+      (function () {
+        const getSrc = (img) => img.getAttribute('data-full-src') || img.currentSrc || img.src;
+
+        const open = (img) => {
+          const src = getSrc(img);
+          if (!src) return;
+
+          const overlay = document.createElement('div');
+          overlay.className = 'lightbox';
+          overlay.innerHTML = `
+            <div class="lightboxInner" role="dialog" aria-modal="true" aria-label="Image preview">
+              <button class="lightboxClose" aria-label="Close">×</button>
+              <img class="lightboxImg" alt="" />
+            </div>
+          `;
+
+          const lbImg = overlay.querySelector('.lightboxImg');
+          const closeBtn = overlay.querySelector('.lightboxClose');
+          lbImg.src = src;
+
+          const close = () => {
+            document.removeEventListener('keydown', onKey);
+            overlay.remove();
+          };
+          const onKey = (e) => {
+            if (e.key === 'Escape') close();
+          };
+
+          closeBtn.addEventListener('click', close);
+          overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) close();
+          });
+          document.addEventListener('keydown', onKey);
+
+          document.body.appendChild(overlay);
+        };
+
+        document.addEventListener('click', (e) => {
+          const img = e.target?.closest?.('img.shot');
+          if (!img) return;
+          open(img);
+        });
+      })();
+
       document.getElementById('y').textContent = new Date().getFullYear();
 
       const pickPrimaryAsset = (assets) => {
