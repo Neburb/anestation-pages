@@ -229,16 +229,23 @@
         <h2>FAQ</h2>
         <div class="faq">
           <details>
-            <summary>Is AneStation an emulator?</summary>
-            <p>No. It’s a launcher shell. Emulation is handled by whatever you configure to run.</p>
+            <summary>What is AneStation?</summary>
+            <p>AneStation is a retro-console inspired desktop experience: insert media, power on, and launch into a clean, console-like UI for your games and apps.</p>
           </details>
+
           <details>
-            <summary>Which platforms are supported?</summary>
-            <p>Placeholder: list target OS (Windows first) and future plans.</p>
+            <summary>What media is supported?</summary>
+            <p>Any external media that your OS mounts as a drive (for example USB drives or SD cards). AneStation looks for a <code>media.yml</code> file at the root to identify and boot a “cartridge”.</p>
           </details>
+
           <details>
-            <summary>How do updates work?</summary>
-            <p>Placeholder: describe OTA behavior and update prompts.</p>
+            <summary>Does it support emulation?</summary>
+            <p>AneStation itself is not an emulator. It can launch whatever you configure as the game/app entrypoint—including emulators—so you can build a console-like experience around them.</p>
+          </details>
+
+          <details>
+            <summary>Can I create my own media?</summary>
+            <p>Yes. Create a folder/drive with your game files and add a <code>media.yml</code> describing what to launch (plus optional artwork/metadata). Then plug it in and AneStation will detect it like a cartridge.</p>
           </details>
         </div>
       </section>
