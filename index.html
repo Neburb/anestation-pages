@@ -251,34 +251,49 @@
     </main>
 
     <script>
-      // Active section highlight for the sticky nav
+      // Active section highlight for the fixed nav
+      // (scroll position based — avoids double-highlighting issues with IntersectionObserver)
       (function () {
+        const nav = document.querySelector('header.nav');
         const links = Array.from(document.querySelectorAll('header.nav nav a'));
-        const sections = links
-          .map((a) => document.querySelector(a.getAttribute('href')))
+        const items = links
+          .map((a) => {
+            const href = a.getAttribute('href') || '';
+            if (!href.startsWith('#')) return null;
+            const el = document.querySelector(href);
+            if (!el) return null;
+            return { a, el, id: href.slice(1) };
+          })
           .filter(Boolean);
 
         const setActive = (id) => {
           links.forEach((a) => a.classList.toggle('active', a.getAttribute('href') === `#${id}`));
         };
 
-        const io = new IntersectionObserver(
-          (entries) => {
-            const visible = entries
-              .filter((e) => e.isIntersecting)
-              .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-            if (visible?.target?.id) setActive(visible.target.id);
-          },
-          {
-            root: null,
-            threshold: [0.2, 0.35, 0.5],
-            // Keep the active section stable while scrolling; account for the fixed navbar.
-            rootMargin: '-10% 0px -65% 0px',
-          }
-        );
+        const pickActive = () => {
+          const offset = (nav?.getBoundingClientRect().height || 0) + 12;
+          let active = items[0]?.id;
 
-        sections.forEach((s) => io.observe(s));
-        setActive('how');
+          for (const it of items) {
+            const top = it.el.getBoundingClientRect().top;
+            if (top - offset <= 0) active = it.id;
+            else break;
+          }
+
+          if (active) setActive(active);
+        };
+
+        let raf = 0;
+        const onScroll = () => {
+          cancelAnimationFrame(raf);
+          raf = requestAnimationFrame(pickActive);
+        };
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll);
+        window.addEventListener('hashchange', onScroll);
+
+        pickActive();
       })();
     </script>
 
