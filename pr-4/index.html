@@ -269,7 +269,12 @@
               .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
             if (visible?.target?.id) setActive(visible.target.id);
           },
-          { root: null, threshold: [0.15, 0.25, 0.5], rootMargin: '-25% 0px -60% 0px' }
+          {
+            root: null,
+            threshold: [0.2, 0.35, 0.5],
+            // Keep the active section stable while scrolling; account for the fixed navbar.
+            rootMargin: '-10% 0px -65% 0px',
+          }
         );
 
         sections.forEach((s) => io.observe(s));
@@ -278,6 +283,51 @@
     </script>
 
     <script>
+      // Simple image lightbox (same page)
+      (function () {
+        const getSrc = (img) => img.getAttribute('data-full-src') || img.currentSrc || img.src;
+
+        const open = (img) => {
+          const src = getSrc(img);
+          if (!src) return;
+
+          const overlay = document.createElement('div');
+          overlay.className = 'lightbox';
+          overlay.innerHTML = `
+            <div class="lightboxInner" role="dialog" aria-modal="true" aria-label="Image preview">
+              <button class="lightboxClose" aria-label="Close">×</button>
+              <img class="lightboxImg" alt="" />
+            </div>
+          `;
+
+          const lbImg = overlay.querySelector('.lightboxImg');
+          const closeBtn = overlay.querySelector('.lightboxClose');
+          lbImg.src = src;
+
+          const close = () => {
+            document.removeEventListener('keydown', onKey);
+            overlay.remove();
+          };
+          const onKey = (e) => {
+            if (e.key === 'Escape') close();
+          };
+
+          closeBtn.addEventListener('click', close);
+          overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) close();
+          });
+          document.addEventListener('keydown', onKey);
+
+          document.body.appendChild(overlay);
+        };
+
+        document.addEventListener('click', (e) => {
+          const img = e.target?.closest?.('img.shot');
+          if (!img) return;
+          open(img);
+        });
+      })();
+
       document.getElementById('y').textContent = new Date().getFullYear();
 
       const pickPrimaryAsset = (assets) => {
