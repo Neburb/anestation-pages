@@ -1,18 +1,18 @@
 {
-  "tag": "v1.0.80",
-  "name": "AneStation v1.0.80",
-  "publishedAt": "2026-02-11T11:39:38Z",
-  "htmlUrl": "https://github.com/Neburb/anestation-pages/releases/tag/v1.0.80",
+  "tag": "v1.0.82",
+  "name": "AneStation v1.0.82",
+  "publishedAt": "2026-02-12T11:46:01Z",
+  "htmlUrl": "https://github.com/Neburb/anestation-pages/releases/tag/v1.0.82",
   "assets": [
     {
-      "name": "AneStation-windows-portable-v1.0.80.zip",
-      "url": "https://github.com/Neburb/anestation-pages/releases/download/v1.0.80/AneStation-windows-portable-v1.0.80.zip",
+      "name": "AneStation-windows-portable-v1.0.82.zip",
+      "url": "https://github.com/Neburb/anestation-pages/releases/download/v1.0.82/AneStation-windows-portable-v1.0.82.zip",
       "size": "93.6 MB",
       "contentType": "application/zip"
     },
     {
-      "name": "AneStation.1.0.80.exe",
-      "url": "https://github.com/Neburb/anestation-pages/releases/download/v1.0.80/AneStation.1.0.80.exe",
+      "name": "AneStation.1.0.82.exe",
+      "url": "https://github.com/Neburb/anestation-pages/releases/download/v1.0.82/AneStation.1.0.82.exe",
       "size": "89.6 MB",
       "contentType": "application/x-msdownload"
     }
